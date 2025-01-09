@@ -1,0 +1,1208 @@
+{
+  "headers": [
+    {
+      "columnName": "الاسم"
+    },
+    {
+      "columnName": "العائلة",
+      "align": "center"
+    },
+    {
+      "columnName": "تاريخ النعين",
+      "align": "center"
+    },
+    {
+      "columnName": "القسم",
+      "align": "center"
+    },
+    {
+      "columnName": "الهاتف",
+      "align": "center"
+    },
+    {
+      "columnName": "إجراءات",
+      "align": "center"
+    }
+
+  ],
+  "rows": [
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "contactlistall",
+          "avatar": "assets/crm/avatartom.png"
+        },
+        "dataType": "custom",
+        "text": "ths"
+      },
+      {
+        "columnName": "lastName",
+        "text": "مكاحلة",
+        "align": "center"
+      },
+      {
+        "columnName": "email",
+        "text": "16-2-2020",
+        "align": "center"
+      },
+      {
+        "columnName": "status",
+        "text": "رجال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "columnName": "الهاتف",
+        "align": "center",
+        "text": "079884651"
+      },
+      {
+        "columnName": "إجراءات",
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "احمد",
+          "avatar": "assets/crm/avatarshawn.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "ابراهيم"
+      },
+      {
+        "text": "16/2/2021"
+      },
+      {
+        "columnName": "status",
+        "text": "نساء",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "6 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "16/2/2016"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "16/2/2024"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ],
+    [
+      {
+        "columnName": "firstName",
+        "data": {
+          "name": "عبدالرحمن",
+          "avatar": "assets/crm/avataraffwaw.png"
+        },
+        "dataType": "custom"
+      },
+      {
+        "text": "هيثم"
+      },
+      {
+        "text": "18/9/2023"
+      },
+      {
+        "columnName": "status",
+        "text": "اطفال",
+        "dataType": "custom",
+        "tagType": "Secondary",
+        "align": "center"
+      },
+      {
+        "text": "25 minutes ago"
+      },
+      {
+        "dataType":"action",
+        "align": "center"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "groupName": "",
+    "menuList": [
+      {
+        "icon": "assets/crm/accounts.svg",
+        "menuName": "المعالجون",
+        "path": "/account"
+      },
+      {
+        "icon": "assets/crm/contacts.svg",
+        "menuName": "Contacts",
+        "path": "/contacts"
+      },
+      {
+        "icon": "assets/crm/calendar.svg",
+        "menuName": "حجوزات",
+        "childList": [
+          {
+            "menuName": "يومي",
+            "path": "/day"
+          },
+          {
+            "menuName": "اسبوعي",
+            "path": "/week"
+          },
+          {
+            "menuName": "شهري",
+            "path": "/month"
+          }
+        ]
+      },
+      {
+        "icon": "assets/crm/reports.svg",
+        "menuName": "تقارير",
+        "childList": [
+          {
+            "menuName": "تقارير",
+            "path": "/report"
+          }
+        ]
+      },
+      {
+        "icon": "assets/crm/setting.svg",
+        "menuName": "الاعدادات",
+        "childList": [
+          {
+            "menuName": "اعدادات المستخدم",
+            "path": "/userSettings"
+          },
+          {
+            "menuName": "خروج",
+            "path": "/signUp"
+          }
+        ]
+      }
+    ]
+  }
+]
