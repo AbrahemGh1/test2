@@ -30,26 +30,27 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
               children: [
                 Row(
                   children: [
-                    Expanded(child: textFieldWidget('الاسم', 'first_name.svg')),
+                    Expanded(
+                        child: textFieldWidget('First Name', 'first_name.svg')),
                     const SizedBox(
                       width: 12,
                     ),
                     Expanded(
-                        child: textFieldWidget('العائلة', 'first_name.svg'))
+                        child: textFieldWidget('Last Name', 'first_name.svg'))
                   ],
                 ),
                 const SizedBox(
                   height: 12,
                 ),
-                textFieldWidget('القسم', 'location.svg'),
-                const SizedBox(
-                  height: 12,
-                ),
-                textFieldWidget('الهاتف', 'tel.svg'),
-                const SizedBox(
-                  height: 12,
-                ),
                 textFieldWidget('Primary Email', 'email.svg'),
+                const SizedBox(
+                  height: 12,
+                ),
+                textFieldWidget('Phone Number', 'tel.svg'),
+                const SizedBox(
+                  height: 12,
+                ),
+                textFieldWidget('Location', 'location.svg'),
                 const SizedBox(
                   height: 12,
                 ),

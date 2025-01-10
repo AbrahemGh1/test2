@@ -15,7 +15,9 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: ResponsiveBuilder(
+    return Scaffold(
+        // Prevent back navigation
+        body: ResponsiveBuilder(
       builder: (context, sizingInformation) {
         // Check the sizing information here and return your UI
         if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
@@ -236,8 +238,7 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
   void blocListener(BuildContext context, SignInState state) {
     if (state.loginStatus != null && state.loginStatus!) {
       SnackBarUtil.showSnack(context, 'LoginSuccess', color: Colors.green);
-      Future.delayed(const Duration(seconds: 0),
-          () => Navigator.of(context).pushNamed('/'));
+      Navigator.of(context).pushNamed('/day');
     }
   }
 }

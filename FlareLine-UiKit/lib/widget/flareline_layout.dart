@@ -69,7 +69,35 @@ abstract class FlarelineLayoutWidget extends StatelessWidget {
   }
 
   Widget? footerWidget(BuildContext context) {
-    return null;
+    return InkWell(
+      child: Container(
+          color: Colors.red,
+          padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: SvgPicture.asset(
+                  'assets/crm/exit.svg',
+                  width: 18,
+                  height: 18,
+                  color: FlarelineColors.background,
+                ),
+              ),
+              const Expanded(
+                  child: Text(
+                'الخروج',
+                overflow: TextOverflow.ellipsis,
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              )),
+            ],
+          )),
+      onTap: () {
+        // This will remove all previous routes
+        Navigator.of(context).popAndPushNamed('/signIn');
+      },
+    );
   }
 
   Widget? toolbarWidget(BuildContext context, bool showDrawer) {
