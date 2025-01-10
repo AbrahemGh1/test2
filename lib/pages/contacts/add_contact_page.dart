@@ -8,6 +8,8 @@ import 'package:flareline_uikit/components/tables/table_widget.dart';
 import 'package:flareline_uikit/core/mvvm/base_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'date_picker_widget.dart';
+
 class AddContactPage extends BaseWidget<AddContactViewModel> {
   AddContactPage({super.key});
 
@@ -30,42 +32,36 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                        child: textFieldWidget('First Name', 'first_name.svg')),
+                    Expanded(child: textFieldWidget('الاسم', 'first_name.svg')),
                     const SizedBox(
                       width: 12,
                     ),
                     Expanded(
-                        child: textFieldWidget('Last Name', 'first_name.svg'))
+                        child: textFieldWidget('العائلة', 'first_name.svg'))
                   ],
                 ),
                 const SizedBox(
                   height: 12,
                 ),
-                textFieldWidget('Primary Email', 'email.svg'),
+                textFieldWidget('البريد إلكتروني', 'email.svg'),
                 const SizedBox(
                   height: 12,
                 ),
-                textFieldWidget('Phone Number', 'tel.svg'),
+                textFieldWidget('رقم الهاتف', 'tel.svg'),
                 const SizedBox(
                   height: 12,
                 ),
-                textFieldWidget('Location', 'location.svg'),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      DatePickerWidget(),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                    ]),
                 const SizedBox(
                   height: 12,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                        child: textFieldWidget(
-                            'Add Home Email Address', 'home_address.svg')),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    Expanded(
-                        child: textFieldWidget(
-                            'Add Workd Email Address', 'email.svg'))
-                  ],
                 ),
                 const SizedBox(
                   height: 12,
