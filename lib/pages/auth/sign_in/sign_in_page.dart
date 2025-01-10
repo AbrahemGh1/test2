@@ -74,23 +74,21 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Welcome back',
+          'مرحبًا بعودتك',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 10,
         ),
         const Text(
-          'Welcome back!Please enter your details!',
-          style: TextStyle(
-            fontSize: 12,
-          ),
+          'مرحبًا بك مرة أخرى! الرجاء إدخال تفاصيلك!',
+          style: TextStyle(fontSize: 13, color: Colors.grey),
         ),
         const SizedBox(
           height: 16,
         ),
         OutBorderTextFormField(
-          hintText: 'enter your email',
+          hintText: 'أدخل بريدك الإلكتروني',
           keyboardType: TextInputType.emailAddress,
           icon: Container(
             margin: const EdgeInsets.only(right: 8, left: 8),
@@ -107,7 +105,7 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
         ),
         OutBorderTextFormField(
           obscureText: true,
-          hintText: 'Password',
+          hintText: 'كلمة المرور',
           icon: Container(
             margin: const EdgeInsets.only(right: 8, left: 8),
             child: SvgPicture.asset(
@@ -122,7 +120,10 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
           height: 20,
         ),
         if (state.loginStatus != null)
-          Text((state.loginStatus ?? false) ? 'Login Success' : 'Login Failed',
+          Text(
+              (state.loginStatus ?? false)
+                  ? 'تم تسجيل الدخول بنجاح'
+                  : 'فشل تسجيل الدخول',
               style: TextStyle(
                 color: (state.loginStatus ?? false)
                     ? CrmColors.green
@@ -133,7 +134,7 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
         ),
         ButtonWidget(
           type: ButtonType.primary.type,
-          btnText: 'Sign in',
+          btnText: 'تسجيل الدخول',
           onTap: () {
             viewModel.signIn();
           },
@@ -144,13 +145,13 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Don\'t have account'),
+            const Text('ليس لدي حساب؟'),
             const SizedBox(
               width: 10,
             ),
             InkWell(
               child: const Text(
-                'Sign Up',
+                'اشتراك',
                 style: TextStyle(color: Colors.blue),
               ),
               onTap: () {
@@ -171,7 +172,7 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
             )),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: const Text('Or'),
+              child: const Text('أو'),
             ),
             const Expanded(
                 child: Divider(
@@ -191,35 +192,7 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
             width: 25,
             height: 25,
           ),
-          btnText: 'Sign In With Google',
-          onTap: () {},
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        ButtonWidget(
-          color: Colors.white,
-          borderColor: CrmColors.border,
-          iconWidget: SvgPicture.asset(
-            'assets/brand/brand-03.svg',
-            width: 25,
-            height: 25,
-          ),
-          btnText: 'Sign In With Github',
-          onTap: () {},
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        ButtonWidget(
-          color: Colors.white,
-          borderColor: CrmColors.border,
-          iconWidget: SvgPicture.asset(
-            'assets/brand/microsoft.svg',
-            width: 25,
-            height: 25,
-          ),
-          btnText: 'Sign In With Microsoft',
+          btnText: 'تسجيل الدخول باستخدام جوجل',
           onTap: () {},
         ),
         const SizedBox(
@@ -237,7 +210,8 @@ class SignInForm extends BlocBaseStlessWidget<SignInViewModel, SignInState> {
   @override
   void blocListener(BuildContext context, SignInState state) {
     if (state.loginStatus != null && state.loginStatus!) {
-      SnackBarUtil.showSnack(context, 'LoginSuccess', color: Colors.green);
+      SnackBarUtil.showSnack(context, 'تم تسجيل الدخول بنجاح',
+          color: Colors.green);
       Navigator.of(context).pushNamed('/day');
     }
   }
