@@ -1,13 +1,12 @@
 import 'package:flareline_crm/core/theme/crm_colors.dart';
 import 'package:flareline_crm/pages/auth/sign_up/sign_up_state.dart';
 import 'package:flareline_crm/pages/auth/sign_up/sign_up_viewmodel.dart';
-import 'package:flareline_uikit/core/mvvm/bloc/bloc_base_stless_widget.dart';
-import 'package:flutter/material.dart';
-
-import 'package:flutter_svg/svg.dart';
 import 'package:flareline_uikit/components/buttons/button_widget.dart';
 import 'package:flareline_uikit/components/card/common_card.dart';
 import 'package:flareline_uikit/components/forms/outborder_text_form_field.dart';
+import 'package:flareline_uikit/core/mvvm/bloc/bloc_base_stless_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
@@ -66,14 +65,14 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Create an account',
+            'إنشاء حساب',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 10,
           ),
           const Text(
-            'Let\'s get started with your 30 day free trial',
+            'لنبدأ بإصدارك التجريبي المجاني لمدة 30 يومًا',
             style: TextStyle(
               fontSize: 12,
             ),
@@ -85,7 +84,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
             children: [
               Expanded(
                 child: OutBorderTextFormField(
-                  hintText: 'First Name',
+                  hintText: 'الاسم الأول',
                   keyboardType: TextInputType.emailAddress,
                   icon: Container(
                     margin: const EdgeInsets.only(right: 8, left: 8),
@@ -103,7 +102,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
               ),
               Expanded(
                 child: OutBorderTextFormField(
-                  hintText: 'Last Name',
+                  hintText: 'اسم العائلة',
                   keyboardType: TextInputType.emailAddress,
                   icon: Container(
                     margin: const EdgeInsets.only(right: 8, left: 8),
@@ -122,7 +121,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
             height: 16,
           ),
           OutBorderTextFormField(
-            hintText: 'enter your email',
+            hintText: 'أدخل بريدك الإلكتروني',
             keyboardType: TextInputType.emailAddress,
             icon: Container(
               margin: const EdgeInsets.only(right: 8, left: 8),
@@ -142,7 +141,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
               Expanded(
                 child: OutBorderTextFormField(
                   obscureText: true,
-                  hintText: 'Password',
+                  hintText: 'كلمة المرور',
                   icon: Container(
                     margin: const EdgeInsets.only(right: 8, left: 8),
                     child: SvgPicture.asset(
@@ -160,7 +159,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
               Expanded(
                 child: OutBorderTextFormField(
                   obscureText: true,
-                  hintText: 'Confirm Password',
+                  hintText: 'تأكيد كلمة المرور',
                   icon: Container(
                     margin: const EdgeInsets.only(right: 8, left: 8),
                     child: SvgPicture.asset(
@@ -179,7 +178,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
           ),
           ButtonWidget(
             type: ButtonType.primary.type,
-            btnText: 'Sign up',
+            btnText: 'اشتراك',
             onTap: () {
               viewModel.signUp(context);
             },
@@ -190,13 +189,13 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('have account'),
+              const Text('لدي حساب'),
               SizedBox(
                 width: 10,
               ),
               InkWell(
                 child: const Text(
-                  'Sign In',
+                  'تسجيل الدخول',
                   style: TextStyle(color: Colors.blue),
                 ),
                 onTap: () {
@@ -217,7 +216,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
               )),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: const Text('Or'),
+                child: const Text('أو'),
               ),
               const Expanded(
                   child: Divider(
@@ -237,35 +236,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
               width: 25,
               height: 25,
             ),
-            btnText: 'Sign Up With Google',
-            onTap: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ButtonWidget(
-            color: Colors.white,
-            borderColor: CrmColors.border,
-            iconWidget: SvgPicture.asset(
-              'assets/brand/brand-03.svg',
-              width: 25,
-              height: 25,
-            ),
-            btnText: 'Sign Up With Github',
-            onTap: () {},
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ButtonWidget(
-            color: Colors.white,
-            borderColor: CrmColors.border,
-            iconWidget: SvgPicture.asset(
-              'assets/brand/microsoft.svg',
-              width: 25,
-              height: 25,
-            ),
-            btnText: 'Sign Up With Microsoft',
+            btnText: 'التسجيل باستخدام جوجل',
             onTap: () {},
           ),
           const SizedBox(
