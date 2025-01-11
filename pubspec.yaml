@@ -50,6 +50,9 @@ dependencies:
   syncfusion_flutter_datagrid: ^27.1.58
 
   syncfusion_flutter_calendar: ^27.1.58
+
+  group_button: ^5.3.4
+
   calendar_date_picker2: ^1.1.7
 
   popover: ^0.3.0+1
