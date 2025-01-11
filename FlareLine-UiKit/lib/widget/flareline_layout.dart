@@ -71,25 +71,21 @@ abstract class FlarelineLayoutWidget extends StatelessWidget {
   Widget? footerWidget(BuildContext context) {
     return InkWell(
       child: Container(
-          color: Colors.red,
+          color: Colors.red.withOpacity(0.05),
           padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
           child: Row(
             children: [
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: SvgPicture.asset(
-                  'assets/crm/exit.svg',
-                  width: 18,
-                  height: 18,
-                  color: FlarelineColors.background,
-                ),
-              ),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: const Icon(Icons.exit_to_app_outlined,
+                      color: Colors.red)),
               const Expanded(
                   child: Text(
                 'الخروج',
                 overflow: TextOverflow.ellipsis,
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               )),
             ],
           )),
@@ -125,7 +121,7 @@ abstract class FlarelineLayoutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 0,
       ),
