@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flareline_crm/core/theme/crm_colors.dart';
+import 'package:flareline_crm/pages/patients/add_contact_page.dart';
 import 'package:flareline_uikit/components/forms/search_widget.dart';
 import 'package:flareline_uikit/components/forms/select_widget.dart';
-import 'package:flareline_uikit/components/image/image_widget.dart';
 import 'package:flareline_uikit/components/tables/table_widget.dart';
 import 'package:flareline_uikit/entity/table_data_entity.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +11,14 @@ import 'package:flutter/services.dart';
 import 'package:popover/popover.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../../helper/data_fetcher.dart';
-import '../contacts/add_contact_page.dart';
+import '../../services/data_fetcher.dart';
 
-class ContactListWidget extends TableWidget<ContactListViewModel> {
+class TherapistListWidget extends TableWidget<ContactListViewModel> {
   final bool? showTitle;
   final bool? showPage;
   final String? json;
 
-  ContactListWidget({super.key, this.showTitle, this.showPage, this.json});
+  TherapistListWidget({super.key, this.showTitle, this.showPage, this.json});
 
   @override
   // TODO: implement showPaging
@@ -48,7 +47,9 @@ class ContactListWidget extends TableWidget<ContactListViewModel> {
           ScreenTypeLayout.builder(
             desktop: (context) => const SizedBox(
               width: 280,
-              child: SearchWidget(),
+              child: SearchWidget(
+                hintText: "ابحث عن معالج",
+              ),
             ),
             mobile: (context) => const SizedBox.shrink(),
             tablet: (context) => const SizedBox.shrink(),
@@ -64,7 +65,7 @@ class ContactListWidget extends TableWidget<ContactListViewModel> {
           SizedBox(
             width: 150,
             height: 48,
-            child: AddContactPage(),
+            child: AddPatientPage(),
           ),
         ],
       ),
@@ -86,47 +87,58 @@ class ContactListWidget extends TableWidget<ContactListViewModel> {
 
   @override
   // TODO: implement actionColumnWidth
-  double get actionColumnWidth => 80;
+  double get actionColumnWidth => 40;
 
   @override
   Widget? customWidgetsBuilder(BuildContext context,
       TableDataRowsTableDataRows columnData, ContactListViewModel viewModel) {
-    if ('firstName' == columnData.columnName) {
+    if ('الاسم' == columnData.columnName) {
       return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ImageWidget(
-            imageUrl: columnData.data['avatar'],
-            width: 60,
-            height: 60,
-            isCircle: true,
+          CircleAvatar(
+            backgroundImage: AssetImage(
+              columnData.data['avatar'],
+            ),
+            minRadius: 30,
+            maxRadius: 35,
+            backgroundColor: Colors.deepPurple, //show loading
           ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(columnData.data['name'])
+          Text(columnData.data['name'],
+              style: const TextStyle(
+                fontFamily: "almarai",
+              ))
         ],
       );
     }
 
-    if ('status' == columnData.columnName) {
-      return Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
-            color: columnData.text == 'Active'
-                ? const Color(0xFFF6FFF5)
-                : const Color(0xFFF2F6FF)),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-        child: Text(
-          columnData.text ?? '',
-          style: TextStyle(
-              color: columnData.text == 'Active'
-                  ? CrmColors.green
-                  : CrmColors.paragraph),
-        ),
-      );
+    if ('القسم' == columnData.columnName) {
+      return _buildStyledTag(columnData);
     }
     return null;
+  }
+
+  Container _buildStyledTag(TableDataRowsTableDataRows columnData) {
+    Color color = columnData.text == "رجال"
+        ? const Color(0xFFF6FFF5)
+        : columnData.text == 'نساء'
+            ? const Color(0xFFF2F6FF)
+            : Colors.yellow.shade50;
+    Color txtColor = columnData.text == "رجال"
+        ? CrmColors.green
+        : columnData.text == 'نساء'
+            ? CrmColors.paragraph
+            : Colors.amberAccent;
+
+    return Container(
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(4), color: color),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      child: Text(
+        columnData.text ?? '',
+        style: TextStyle(color: txtColor, fontFamily: 'almarai'),
+      ),
+    );
   }
 
   @override
@@ -141,6 +153,33 @@ class ContactListWidget extends TableWidget<ContactListViewModel> {
   @override
   ContactListViewModel viewModelBuilder(BuildContext context) {
     return ContactListViewModel(context, json);
+  }
+}
+
+class ContactListViewModel extends BaseTableProvider {
+  String? jsonFile;
+
+  ContactListViewModel(super.context, this.jsonFile);
+
+  @override
+  loadData(BuildContext context) async {
+    DataFetcher dataFetcher = DataFetcher();
+    try {
+      // Fetch and transform the data
+      Map<String, dynamic> transformedData =
+          await dataFetcher.fetchTherapistList();
+      TableDataEntity tableDataEntity =
+          TableDataEntity.fromJson(transformedData);
+      this.tableDataEntity = tableDataEntity;
+      return;
+    } catch (e) {
+      print("Error: $e");
+    }
+    String res =
+        await rootBundle.loadString(jsonFile ?? 'assets/crm/contactlist.json');
+    Map<String, dynamic> map = json.decode(res);
+    TableDataEntity tableDataEntity = TableDataEntity.fromJson(map);
+    this.tableDataEntity = tableDataEntity;
   }
 }
 
@@ -207,52 +246,5 @@ class ListItems extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class ContactListViewModel extends BaseTableProvider {
-  String? jsonFile;
-
-  ContactListViewModel(super.context, this.jsonFile);
-
-  @override
-  loadData(BuildContext context) async {
-    DataFetcher dataFetcher = DataFetcher();
-
-    try {
-      // Fetch and transform the data
-      Map<String, dynamic> transformedData = await dataFetcher.fetchData();
-      TableDataEntity tableDataEntity =
-          TableDataEntity.fromJson(transformedData);
-      this.tableDataEntity = tableDataEntity;
-      // Print the transformed data as JSON
-      print(jsonEncode(transformedData));
-      return;
-    } catch (e) {
-      print("Error: $e");
-    }
-    String res =
-        await rootBundle.loadString(jsonFile ?? 'assets/crm/contactlist.json');
-
-    Map<String, dynamic> map = json.decode(res);
-    TableDataEntity tableDataEntity = TableDataEntity.fromJson(map);
-    print("AAAAAAAA$tableDataEntity");
-
-    this.tableDataEntity = tableDataEntity;
-  }
-}
-
-class ContactListViewModel2 extends BaseTableProvider {
-  String? jsonFile;
-
-  ContactListViewModel2(super.context, this.jsonFile);
-
-  @override
-  loadData(BuildContext context) async {
-    String res =
-        await rootBundle.loadString(jsonFile ?? 'assets/crm/contactlist.json');
-    Map<String, dynamic> map = json.decode(res);
-    TableDataEntity tableDataEntity = TableDataEntity.fromJson(map);
-    this.tableDataEntity = tableDataEntity;
   }
 }

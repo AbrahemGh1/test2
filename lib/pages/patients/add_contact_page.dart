@@ -33,8 +33,8 @@ class ScrollInjector extends StatelessWidget {
   }
 }
 
-class AddContactPage extends BaseWidget<AddContactViewModel> {
-  AddContactPage({super.key});
+class AddPatientPage extends BaseWidget<AddContactViewModel> {
+  AddPatientPage({super.key});
 
   final controller = GroupButtonController();
 
@@ -51,7 +51,7 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
             titleAlign: Alignment.centerLeft,
             showTitle: true,
             modalType: ModalType.medium,
-            showCancel: false,
+            showCancel: true,
             width: 600,
             child: Column(
               children: [
@@ -68,7 +68,11 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
                 const SizedBox(
                   height: 12,
                 ),
-                textFieldWidget('البريد إلكتروني', 'email.svg'),
+                textFieldWidget('اسم المستخدم', 'email.svg'),
+                const SizedBox(
+                  height: 12,
+                ),
+                textFieldWidget('كلمة المرور', 'lock.svg'),
                 const SizedBox(
                   height: 12,
                 ),
@@ -82,49 +86,49 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
                     children: [
                       DatePickerWidget(),
                     ]),
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: Row(
-                    children: [
-                      const Text(
-                        'القسم',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(width: 20),
-                      ScrollInjector(
-                        groupingType: GroupingType.wrap,
-                        child: GroupButton(
-                          buttons: const [
-                            'رجال',
-                            'نساء',
-                            'اطفال',
-                          ],
-                          controller: GroupButtonController(selectedIndex: 0),
-                          options: GroupButtonOptions(
-                            selectedShadow: const [],
-                            unselectedShadow: const [],
-                            unselectedColor: Colors.grey[300],
-                            unselectedTextStyle: TextStyle(
-                              color: Colors.grey[600],
-                            ),
-                            borderRadius: BorderRadius.circular(8),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  children: [
+                    const Text(
+                      'القسم',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(width: 12),
+                    ScrollInjector(
+                      groupingType: GroupingType.wrap,
+                      child: GroupButton(
+                        buttons: const [
+                          'رجال',
+                          'نساء',
+                          'اطفال',
+                        ],
+                        controller: GroupButtonController(selectedIndex: 0),
+                        options: GroupButtonOptions(
+                          selectedShadow: const [],
+                          unselectedShadow: const [],
+                          unselectedColor: Colors.grey[300],
+                          unselectedTextStyle: TextStyle(
+                            color: Colors.grey[600],
                           ),
-                          onSelected: (val, i, selected) =>
-                              debugPrint('Button: $val index: $i $selected'),
+                          borderRadius: BorderRadius.circular(4),
                         ),
+                        onSelected: (val, i, selected) =>
+                            debugPrint('Button: $val index: $i $selected'),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 const Divider(),
                 const SizedBox(
                   height: 12,
                 ),
                 Container(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   child: const Text(
-                    'Add A Photo Of Business Logo Of Your Contact',
+                    'أضف صورة لشعار العمل الخاص بجهة الاتصال الخاصة بك',
                     style: TextStyle(color: CrmColors.paragraph, fontSize: 12),
                   ),
                 ),
@@ -132,7 +136,7 @@ class AddContactPage extends BaseWidget<AddContactViewModel> {
                   height: 10,
                 ),
                 SizedBox(
-                  height: 150,
+                  height: 120,
                   child: DropZoneWidget(
                     text: const Text(
                       'Select or Drop File',

@@ -9,7 +9,6 @@ import 'package:flareline_uikit/core/mvvm/base_viewmodel.dart';
 import 'package:flareline_uikit/core/mvvm/base_widget.dart';
 import 'package:flareline_uikit/entity/table_data_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
@@ -71,7 +70,7 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
       return const LoadingWidget();
     }
 
-    List<List<TableDataRowsTableDataRows>> rows = tableDataEntity?.rows ?? [];
+    List<List<TableDataRowsTableDataRows>> rows = tableDataEntity.rows ?? [];
     return ConstrainedBox(
         constraints: const BoxConstraints(minWidth: double.infinity),
         child: _sfDataGrid(context, headers, rows, viewModel));
@@ -130,9 +129,11 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
         Expanded(
             child: ScreenTypeLayout.builder(
           desktop: (context) =>
-              responsiveWidget(dataGridSource, headers, false),
-          mobile: (context) => responsiveWidget(dataGridSource, headers, true),
-          tablet: (context) => responsiveWidget(dataGridSource, headers, true),
+              responsiveWidget(context, dataGridSource, headers, false),
+          mobile: (context) =>
+              responsiveWidget(context, dataGridSource, headers, true),
+          tablet: (context) =>
+              responsiveWidget(context, dataGridSource, headers, true),
         )),
         if (showPaging && rows.isNotEmpty)
           SizedBox(
@@ -146,8 +147,8 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
     );
   }
 
-  Widget responsiveWidget(
-      BaseDataGridSource dataGridSource, List<dynamic> headers, bool isMobile) {
+  Widget responsiveWidget(context, BaseDataGridSource dataGridSource,
+      List<dynamic> headers, bool isMobile) {
     return SfDataGrid(
       footerHeight: 100,
       source: dataGridSource,
@@ -155,12 +156,20 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
       highlightRowOnHover: highlightRowOnHover,
       showCheckboxColumn: showCheckboxColumn,
       gridLinesVisibility: GridLinesVisibility.horizontal,
-      selectionMode: SelectionMode.multiple,
-      checkboxColumnSettings: DataGridCheckboxColumnSettings(width: 80),
+      selectionMode: SelectionMode.single,
+      checkboxColumnSettings: const DataGridCheckboxColumnSettings(width: 80),
       footerFrozenColumnsCount: isLastColumnFixed ? 1 : 0,
       isScrollbarAlwaysShown: true,
       columnWidthMode: columnWidthMode,
       columns: headers.map((e) => gridColumnWidget(e, isMobile)).toList(),
+      onCellDoubleTap: (details) {
+        dataGridSource.rows[details.rowColumnIndex.rowIndex - 1];
+        print(dataGridSource.rows[details.rowColumnIndex.rowIndex - 1]
+            .getCells()
+            .last
+            .value);
+        Navigator.of(context).pushNamed('/patientProfilePage');
+      },
     );
   }
 
@@ -189,10 +198,11 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
       columnName: columnName,
       visible: isColumnVisible(columnName, isMobile),
       label: Container(
-        alignment: 'center' == align
-            ? Alignment.center
-            : ('right' == align ? Alignment.centerRight : Alignment.centerLeft),
+        alignment: 'centerLeft' == align
+            ? Alignment.centerLeft
+            : ('right' == align ? Alignment.centerRight : Alignment.center),
         child: Text(
+          //'Almarai-Regular'almarai
           columnName,
           style: const TextStyle(
               fontFamily: 'almarai', fontWeight: FontWeight.bold),
@@ -205,7 +215,6 @@ abstract class TableWidget<S extends BaseTableProvider> extends BaseWidget<S> {
   Widget bodyWidget(BuildContext context, S viewModel, Widget? child) {
     String? titleText = title(context);
     Widget? tools = toolsWidget(context, viewModel);
-    const textTheme = GoogleFonts.almaraiTextTheme;
     return CommonCard(
         child: Padding(
       padding: const EdgeInsets.all(16),
@@ -299,12 +308,10 @@ class BaseDataGridSource<F extends BaseTableProvider> extends DataGridSource {
       if (dataGridCell.value is TableDataRowsTableDataRows) {
         String? align = dataGridCell.value.align;
         return Container(
+          alignment: 'centerLeft' == align
+              ? Alignment.centerLeft
+              : ('right' == align ? Alignment.centerRight : Alignment.center),
           child: cellWidget(dataGridCell.value),
-          alignment: 'center' == align
-              ? Alignment.center
-              : ('right' == align
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft),
         );
       }
       return SizedBox.shrink();
@@ -378,9 +385,9 @@ class BaseDataGridSource<F extends BaseTableProvider> extends DataGridSource {
               fit: BoxFit.contain,
               errorBuilder: (context, exception, stacktrace) {
                 return Text(stacktrace.toString());
-              },
+              }, //https://959585f5f94d4e048590845b496ae694.api.mockbin.io/
             )
-          : const SizedBox.shrink()),
+          : SizedBox.shrink()),
     );
   }
 }

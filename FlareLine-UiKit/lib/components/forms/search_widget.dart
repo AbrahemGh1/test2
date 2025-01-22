@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 class SearchWidget extends StatelessWidget {
   final TextEditingController? controller;
 
-  const SearchWidget({super.key, this.controller});
+  final String hintText;
+
+  const SearchWidget({super.key, this.controller, this.hintText = 'ابحث'});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class SearchWidget extends StatelessWidget {
         ),
         size: 24,
       ),
-      hintText: 'ابحث عن معالج',
+      hintText: hintText,
       controller: controller,
     );
   }

@@ -3,7 +3,8 @@ import 'package:flareline_uikit/core/theme/flareline_colors.dart';
 import 'package:flutter/material.dart';
 
 class DatePickerWidget extends StatelessWidget {
-  DatePickerWidget({super.key});
+  String label;
+  DatePickerWidget({super.key, this.label = "تاريخ التعين"});
 
   final ValueNotifier<String> dateNotifier = ValueNotifier("");
 
@@ -12,7 +13,7 @@ class DatePickerWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("التاريخ"),
+        Text(label),
         const SizedBox(
           height: 10,
         ),
@@ -39,7 +40,7 @@ class DatePickerWidget extends StatelessWidget {
                 builder: (c, val, child) {
                   return Container(
                       alignment: Alignment.centerLeft,
-                      height: 45,
+                      height: 50,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       width: double.maxFinite,
                       decoration: BoxDecoration(

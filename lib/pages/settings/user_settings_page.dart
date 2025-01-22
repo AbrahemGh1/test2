@@ -6,7 +6,6 @@ import 'package:flareline_uikit/components/forms/outborder_text_form_field.dart'
 import 'package:flareline_uikit/components/forms/select_widget.dart';
 import 'package:flareline_uikit/components/image/image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class UserSettingsPage extends CrmLayout {
   const UserSettingsPage({super.key});
@@ -91,7 +90,7 @@ class UserSettingsPage extends CrmLayout {
           const SizedBox(
             height: 20,
           ),
-          _textField('Phone number', '(217)555-0113',isMobile),
+          _textField('Phone number', '(217)555-0113', isMobile),
           const SizedBox(
             height: 20,
           ),
@@ -99,11 +98,11 @@ class UserSettingsPage extends CrmLayout {
           const SizedBox(
             height: 20,
           ),
-          _textField('User name', 'Jenny20',isMobile),
+          _textField('User name', 'Jenny20', isMobile),
           const SizedBox(
             height: 20,
           ),
-          _textField('User surname', 'Jenny Wilson',isMobile),
+          _textField('User surname', 'Jenny Wilson', isMobile),
           const SizedBox(
             height: 20,
           ),
@@ -111,18 +110,21 @@ class UserSettingsPage extends CrmLayout {
           const SizedBox(
             height: 20,
           ),
-          _textField('Your bio', 'Add a short bio...', maxlines: 5,isMobile),
+          _textField('Your bio', 'Add a short bio...', maxlines: 5, isMobile),
           const SizedBox(
             height: 20,
           ),
-          _textField('Email', 'jenny.wilson@example.com',isMobile),
+          _textField('Email', 'jenny.wilson@example.com', isMobile),
           const SizedBox(
             height: 20,
           ),
-          _dropField('Job', [
-            "Flutter Developer",
-            'Web Designer',
-          ],isMobile),
+          _dropField(
+              'Job',
+              [
+                "Flutter Developer",
+                'Web Designer',
+              ],
+              isMobile),
           const SizedBox(
             height: 20,
           ),
@@ -132,7 +134,7 @@ class UserSettingsPage extends CrmLayout {
               const SizedBox(
                 width: 125,
                 child: ButtonWidget(
-                  btnText: 'Cancel',
+                  btnText: 'الغاء',
                 ),
               ),
               const SizedBox(
@@ -141,7 +143,7 @@ class UserSettingsPage extends CrmLayout {
               SizedBox(
                   width: 125,
                   child: ButtonWidget(
-                    btnText: 'Save',
+                    btnText: 'حفظ',
                     type: ButtonType.primary.type,
                   )),
             ],
@@ -204,7 +206,9 @@ class UserSettingsPage extends CrmLayout {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _leftContainer(text: s),
-          const SizedBox(height: 8,),
+          const SizedBox(
+            height: 8,
+          ),
           SelectWidget(
             selectionList: list,
             textStyle: const TextStyle(fontSize: 14, color: CrmColors.heading),
@@ -224,8 +228,9 @@ class UserSettingsPage extends CrmLayout {
     );
   }
 
-  _textField(String s, String initialValue, bool isMobile, {int? maxlines = 1}) {
-    if(isMobile){
+  _textField(String s, String initialValue, bool isMobile,
+      {int? maxlines = 1}) {
+    if (isMobile) {
       return OutBorderTextFormField(
         initialValue: initialValue,
         maxLines: maxlines,

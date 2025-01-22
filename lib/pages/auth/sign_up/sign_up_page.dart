@@ -190,7 +190,7 @@ class SignUpPage extends BlocBaseStlessWidget<SignUpViewModel, SignUpState> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('لدي حساب'),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               InkWell(

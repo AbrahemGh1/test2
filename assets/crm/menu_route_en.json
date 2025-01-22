@@ -10,7 +10,7 @@
       {
         "icon": "assets/crm/contacts.svg",
         "menuName": "Contacts",
-        "path": "/contacts"
+        "path": "/therapist"
       },
       {
         "icon": "assets/crm/accounts.svg",

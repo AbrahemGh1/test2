@@ -9,7 +9,7 @@ abstract class CrmLayout extends FlarelineLayoutWidget {
   Color get sideBarDarkColor => Color(0xFF040710);
 
   @override
-  String get appName => 'الاستشاري';
+  String get appName => 'المعتمد';
 
   @override
   String sideBarAsset(BuildContext context) {

@@ -6,17 +6,16 @@
         "icon": "assets/crm/calendar.svg",
         "menuName": "الحجوزات",
         "path": "/day"
-
       },
       {
         "icon": "assets/crm/accounts.svg",
         "menuName": "الزوار",
-        "path": "/contacts"
+        "path": "/patients"
       },
       {
         "icon": "assets/crm/contacts.svg",
         "menuName": "المعالجون",
-        "path": "/account"
+        "path": "/therapist"
       },
       {
         "icon": "assets/crm/reports.svg",
@@ -24,9 +23,17 @@
         "path": "/report"
       },
       {
+        "icon": "assets/crm/budgetCost.svg",
+        "menuName": "مصاريف",
+        "path": "/cost"
+      },
+      {
         "icon": "assets/crm/setting.svg",
         "menuName": "اعدادات المستخدم",
         "path": "/userSettings"
+      },
+      {
+        "path": "/patientProfilePage"
       }
     ]
   }

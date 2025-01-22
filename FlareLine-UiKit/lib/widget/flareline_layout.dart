@@ -121,9 +121,10 @@ abstract class FlarelineLayoutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         toolbarHeight: 0,
+        elevation: 9,
       ),
       body: ResponsiveBuilder(
         builder: (context, sizingInformation) {
@@ -191,7 +192,7 @@ abstract class FlarelineLayoutWidget extends StatelessWidget {
     );
 
     return Column(children: [
-      if (false)
+      if (showToolBar)
         toolbarWidget(
               context,
               showDrawer,

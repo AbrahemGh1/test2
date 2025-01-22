@@ -1,9 +1,9 @@
 import 'package:flareline_crm/pages/crm_layout.dart';
-import 'package:flareline_crm/pages/home/contact_list_widget.dart';
+import 'package:flareline_crm/pages/home/therapist_list_widget.dart';
 import 'package:flutter/material.dart';
 
-class AccountPage extends CrmLayout {
-  const AccountPage({super.key});
+class TherapistPage extends CrmLayout {
+  const TherapistPage({super.key});
 
   @override
   // TODO: implement isContentScroll
@@ -17,7 +17,7 @@ class AccountPage extends CrmLayout {
 
   @override
   Widget contentDesktopWidget(BuildContext context) {
-    return ContactListWidget(
+    return TherapistListWidget(
       showTitle: false,
       showPage: true,
       json: 'assets/crm/contactlistall.json',

@@ -1,11 +1,9 @@
-import 'package:flareline_crm/core/theme/crm_colors.dart';
 import 'package:flareline_crm/pages/crm_layout.dart';
 import 'package:flareline_uikit/components/charts/circular_chart.dart';
-import 'package:flareline_uikit/components/charts/line_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+
+import '../../components/card_report_widget.dart';
 
 class ReportPage extends CrmLayout {
   const ReportPage({super.key});
@@ -17,108 +15,259 @@ class ReportPage extends CrmLayout {
   @override
   String breakTabTitle(BuildContext context) {
     // TODO: implement breakTabTitle
-    return 'Reports';
+    return 'تقارير';
   }
 
   @override
   Widget contentDesktopWidget(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 400,
-          child: LineChartWidget(
-            isDropdownToggle: false,
-            title: 'Sales Figures',
-            dropdownItems: const ['Daily', 'Weekly', 'Monthly'],
-            datas: const [
-              {
-                'name': 'Marketing Sales',
-                'color': Color(0xFFFE8111),
-                'data': [
-                  {'x': 'Jan', 'y': 25},
-                  {'x': 'Fed', 'y': 75},
-                  {'x': 'Mar', 'y': 28},
-                  {'x': 'Apr', 'y': 32},
-                  {'x': 'May', 'y': 40},
-                  {'x': 'Jun', 'y': 48},
-                  {'x': 'Jul', 'y': 44},
-                  {'x': 'Aug', 'y': 42},
-                  {'x': 'Sep', 'y': 70},
-                  {'x': 'Oct', 'y': 65},
-                  {'x': 'Nov', 'y': 55},
-                  {'x': 'Dec', 'y': 78}
-                ]
-              },
-              {
-                'name': 'Cases Sales',
-                'color': Color(0xFF01B7F9),
-                'data': [
-                  {'x': 'Jan', 'y': 70},
-                  {'x': 'Fed', 'y': 30},
-                  {'x': 'Mar', 'y': 66},
-                  {'x': 'Apr', 'y': 44},
-                  {'x': 'May', 'y': 55},
-                  {'x': 'Jun', 'y': 51},
-                  {'x': 'Jul', 'y': 44},
-                  {'x': 'Aug', 'y': 30},
-                  {'x': 'Sep', 'y': 100},
-                  {'x': 'Oct', 'y': 87},
-                  {'x': 'Nov', 'y': 77},
-                  {'x': 'Dec', 'y': 20}
-                ]
-              },
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 500,
-          child: Row(
-            children: [
-              SizedBox(
-                width: 500,
-                child: CircularhartWidget(
-                  title: 'Sorce Of Purchases',
-                  position: LegendPosition.bottom,
-                  orientation: LegendItemOrientation.vertical,
-                  palette: const [
-                    CrmColors.orange,
-                    CrmColors.secondary,
-                  ],
-                  chartData: const [
-                    {
-                      'x': 'Social Media',
-                      'y': 33,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 250,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 250,
+                  height: 250,
+                  child: InkWell(
+                    child: const FractionallySizedBox(
+                        heightFactor: .6,
+                        child: ReportCard(
+                          title: 'مصاريف',
+                          imageSrc: 'assets/crm/budget-cost-colored.svg',
+                          amount: '750',
+                          //color: Color(0xFFefc3ca).withOpacity(0.8),
+                          color: Color(0xFFA7F3D0),
+                        )),
+                    onTap: () {
+                      Navigator.of(context).popAndPushNamed('/cost');
                     },
-                    {
-                      'x': 'Direct Search',
-                      'y': 33,
-                    },
-                  ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Expanded(child: _buildTrackerBarChart())
-            ],
+                const SizedBox(
+                  width: 20,
+                ),
+                const SizedBox(
+                  width: 250,
+                  height: 250,
+                  child: FractionallySizedBox(
+                      heightFactor: .6,
+                      child: ReportCard(
+                        title: 'عدد الجلسات',
+                        imageSrc: 'assets/crm/budget-cost-colored.svg',
+                        amount: '285',
+                        color: Color(0xFFE0F7FA),
+                      )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const SizedBox(
+                  width: 250,
+                  height: 250,
+                  child: FractionallySizedBox(
+                      heightFactor: .6,
+                      child: ReportCard(
+                        title: 'زائر',
+                        imageSrc: 'assets/crm/budget-cost-colored.svg',
+                        amount: '69',
+                        //color: Colors.deepPurpleAccent.withOpacity(.7) // Remove const here
+                        color: Color(0xFF60A5FA),
+                      )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const SizedBox(
+                  width: 250,
+                  height: 250,
+                  child: FractionallySizedBox(
+                      heightFactor: .6,
+                      child: ReportCard(
+                        title: 'الارباح',
+                        imageSrc: 'assets/crm/invoice.svg',
+                        amount: '1550',
+                        color: Color(0xFFB57EDC),
+                        //color: const Color(0xFFf5ebd8)
+                        //color: const Color(0xFFc7ff00)
+                        //.withOpacity(0.75), // Remove const here
+                      )),
+                ),
+              ],
+            ),
           ),
-        )
-      ],
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.8,
+                    child: Card(
+                      //color: Colors.amber.shade50,
+                      elevation: 10,
+                      child: CircularhartWidget(
+                        title: 'نوع الزوار',
+                        position: LegendPosition.bottom,
+                        orientation: LegendItemOrientation.horizontal,
+                        palette: const [
+                          Color(0xFFD8A7D2),
+                          Color(0xFF3B82F6),
+                          Color(0xFFA7F3D0),
+                        ],
+                        chartData: const [
+                          {
+                            'x': 'نساء',
+                            'y': 35,
+                          },
+                          {
+                            'x': 'رجال',
+                            'y': 49,
+                          },
+                          {
+                            'x': 'اطفال',
+                            'y': 16,
+                          },
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: FractionallySizedBox(
+                    widthFactor: 1,
+                    child: Card(
+                      //color: Colors.amber.shade50,
+                      elevation: 10,
+                      child: CircularhartWidget(
+                        title: 'المصاريف',
+                        position: LegendPosition.bottom,
+                        orientation: LegendItemOrientation.horizontal,
+                        palette: const [
+                          Color(0xFF1D4ED8),
+                          Color(0xFF60A5FA),
+                          Color(0xFF34D399),
+                          Color(0xFFFB923C),
+                        ],
+                        chartData: const [
+                          {
+                            'x': 'رواتب',
+                            'y': 43,
+                          },
+                          {
+                            'x': 'اجار',
+                            'y': 22,
+                          },
+                          {
+                            'x': 'ادوات طبية',
+                            'y': 20,
+                          },
+                          {
+                            'x': 'مصاريف اخرى',
+                            'y': 15,
+                          },
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.9,
+                    child: Card(
+                      //color: Colors.amber.shade50,
+                      elevation: 10,
+                      child: CircularhartWidget(
+                        title: 'طريقة الدفع',
+                        position: LegendPosition.bottom,
+                        orientation: LegendItemOrientation.horizontal,
+                        palette: const [Color(0xFF3B82F6), Color(0xFFFB923C)],
+                        chartData: const [
+                          {
+                            'x': 'نقد',
+                            'y': 37,
+                          },
+                          {
+                            'x': 'تأمين',
+                            'y': 63,
+                          },
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Expanded(
+                    child: Card(
+                  elevation: 10,
+                  child: buildBar([
+                    ChartData('رقبة', 74, Color(0xFF8B5CF6)), //teal
+                    ChartData('دسك', 77, Color(0xFF1D4ED8)), //orange
+                    ChartData('ركبة', 68, Color(0xFF14B8A6)), //brown
+                    ChartData('مرفق', 66, Color(0xFFF9A8D4)) //deepOrange
+                  ]),
+                )),
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                    child: Card(
+                        //color: Colors.amber.shade50,
+                        elevation: 10,
+                        child: _buildTrackerBarChart('عدد الجلسات'))),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  SfCartesianChart _buildTrackerBarChart() {
+  Widget buildBar(List<ChartData> chartData) {
     return SfCartesianChart(
+        primaryXAxis: const CategoryAxis(),
+        title: const ChartTitle(
+            text: 'نوع الجلسات',
+            textStyle: TextStyle(fontWeight: FontWeight.bold)),
+        series: <CartesianSeries>[
+          ColumnSeries<ChartData, String>(
+              dataSource: chartData,
+              xValueMapper: (ChartData data, _) => data.x,
+              yValueMapper: (ChartData data, _) => data.y,
+              // Map color for each data point from the data source
+              pointColorMapper: (ChartData data, _) => data.color)
+        ]);
+  }
+
+  SfCartesianChart _buildTrackerBarChart(String text) {
+    return SfCartesianChart(
+      palette: const [Color(0xFF34D399)],
       plotAreaBorderWidth: 0,
-      title: ChartTitle(text: 'Working hours of employees'),
       primaryXAxis: const CategoryAxis(
         majorGridLines: MajorGridLines(width: 0),
       ),
       primaryYAxis: NumericAxis(
           majorGridLines: const MajorGridLines(width: 0),
-          title: AxisTitle(text: 'Hours'),
+          title: AxisTitle(
+              text: text,
+              textStyle: const TextStyle(fontWeight: FontWeight.bold)),
           minimum: 0,
-          maximum: 8,
+          maximum: 50,
           majorTickLines: const MajorTickLines(size: 0)),
       series: _getTrackerBarSeries(),
     );
@@ -129,15 +278,24 @@ class ReportPage extends CrmLayout {
   List<BarSeries<ChartSampleData, String>> _getTrackerBarSeries() {
     return <BarSeries<ChartSampleData, String>>[
       BarSeries<ChartSampleData, String>(
+        width: 0.5,
         dataSource: <ChartSampleData>[
-          ChartSampleData(x: 'United States', y: 7.5),
-          ChartSampleData(x: 'Indonesia', y: 7),
-          ChartSampleData(x: 'France', y: 6),
-          ChartSampleData(x: 'Japan', y: 5),
-          ChartSampleData(x: 'China', y: 7),
+          ChartSampleData(x: 'خالد سالم', y: 14, color: Colors.green),
+          ChartSampleData(x: 'هبة عمر', y: 35, color: Colors.green),
+          ChartSampleData(x: 'محمد شخاتره', y: 28, color: Colors.green),
+          ChartSampleData(x: 'رائد الجمدي', y: 23, color: Colors.green),
         ],
         // borderRadius: BorderRadius.circular(15),
+        color: Colors.transparent,
+        pointColorMapper: (datum, index) => datum.color,
         trackColor: Colors.transparent,
+        // markerSettings: const MarkerSettings(
+        //     isVisible: true,
+        //     image: AssetImage(
+        //       'assets/crm/therapist_profile_picture_1.jpg',
+        //     ),
+        //     width: 30,
+        //     height: 30),
 
         /// If we enable this property as true,
         /// then we can show the track of series.
@@ -154,8 +312,91 @@ class ReportPage extends CrmLayout {
 }
 
 class ChartSampleData {
+  /// Holds the datapoint values like x, y, etc.,
+  ChartSampleData(
+      {this.x,
+      this.y,
+      this.xValue,
+      this.yValue,
+      this.secondSeriesYValue,
+      this.thirdSeriesYValue,
+      this.pointColor,
+      this.size,
+      this.text,
+      this.open,
+      this.close,
+      this.low,
+      this.high,
+      this.volume,
+      this.color});
+
+  final Color? color;
+
+  /// Holds x value of the datapoint
+  final dynamic x;
+
+  /// Holds y value of the datapoint
+  final num? y;
+
+  /// Holds x value of the datapoint
+  final dynamic xValue;
+
+  /// Holds y value of the datapoint
+  final num? yValue;
+
+  /// Holds y value of the datapoint(for 2nd series)
+  final num? secondSeriesYValue;
+
+  /// Holds y value of the datapoint(for 3nd series)
+  final num? thirdSeriesYValue;
+
+  /// Holds point color of the datapoint
+  final Color? pointColor;
+
+  /// Holds size of the datapoint
+  final num? size;
+
+  /// Holds datalabel/text value mapper of the datapoint
+  final String? text;
+
+  /// Holds open value of the datapoint
+  final num? open;
+
+  /// Holds close value of the datapoint
+  final num? close;
+
+  /// Holds low value of the datapoint
+  final num? low;
+
+  /// Holds high value of the datapoint
+  final num? high;
+
+  /// Holds open value of the datapoint
+  final num? volume;
+}
+
+/// Chart Sales Data
+class SalesData {
+  /// Holds the datapoint values like x, y, etc.,
+  SalesData(this.x, this.y, [this.date, this.color]);
+
+  /// X value of the data point
+  final dynamic x;
+
+  /// y value of the data point
+  final dynamic y;
+
+  /// color value of the data point
+  final Color? color;
+
+  /// Date time value of the data point
+  final DateTime? date;
+}
+
+class ChartData {
+  ChartData(this.x, this.y, [this.color]);
+
   final String x;
   final double y;
-
-  ChartSampleData({required this.x, required this.y});
+  final Color? color;
 }

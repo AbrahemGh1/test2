@@ -1,7 +1,7 @@
 import 'package:flareline_crm/components/card_data_widget.dart';
 import 'package:flareline_crm/core/theme/crm_colors.dart';
 import 'package:flareline_crm/pages/crm_layout.dart';
-import 'package:flareline_crm/pages/home/contact_list_widget.dart';
+import 'package:flareline_crm/pages/home/therapist_list_widget.dart';
 import 'package:flareline_uikit/components/card/common_card.dart';
 import 'package:flareline_uikit/components/charts/circular_chart.dart';
 import 'package:flareline_uikit/components/charts/line_chart.dart';
@@ -42,7 +42,7 @@ class CrmHomePage extends CrmLayout {
         ),
         SizedBox(
           height: 500,
-          child: ContactListWidget(),
+          child: TherapistListWidget(),
         ),
       ],
     );
@@ -82,7 +82,7 @@ class CrmHomePage extends CrmLayout {
         ),
         SizedBox(
           height: 500,
-          child: ContactListWidget(),
+          child: TherapistListWidget(),
         ),
       ],
     );

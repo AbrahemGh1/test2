@@ -6,8 +6,6 @@ import 'package:flareline_uikit/components/sidebar/side_menu.dart';
 import 'package:flareline_uikit/core/theme/flareline_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/flutter_svg.dart';
-
 class SideBarWidget extends StatelessWidget {
   final double? width;
   final String? appName;
@@ -21,16 +19,17 @@ class SideBarWidget extends StatelessWidget {
 
   final ValueNotifier<String> expandedMenuName = ValueNotifier('');
 
-  SideBarWidget({super.key,
-    this.darkBg,
-    this.lightBg,
-    this.width,
-    this.appName,
-    this.sideBarAsset,
-    this.logoWidget,
-    this.footerWidget,
-    this.logoFontSize=30,
-    this.isDark});
+  SideBarWidget(
+      {super.key,
+      this.darkBg,
+      this.lightBg,
+      this.width,
+      this.appName,
+      this.sideBarAsset,
+      this.logoWidget,
+      this.footerWidget,
+      this.logoFontSize = 30,
+      this.isDark});
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +45,7 @@ class SideBarWidget extends StatelessWidget {
           height: 30,
         ),
         Expanded(child: _sideListWidget(context, isDarkTheme)),
-        if(footerWidget!=null)
-          footerWidget!
+        if (footerWidget != null) footerWidget!
       ]),
     );
   }
@@ -64,11 +62,11 @@ class SideBarWidget extends StatelessWidget {
         ),
         Expanded(
             child: Text(
-              appName ?? '',
-              style: TextStyle(
-                  color: isDark ? Colors.white : FlarelineColors.darkBlackText,
-                  fontSize: logoFontSize),
-            ))
+          appName ?? '',
+          style: TextStyle(
+              color: isDark ? Colors.white : FlarelineColors.darkBlackText,
+              fontSize: logoFontSize),
+        ))
       ],
     );
   }
@@ -99,8 +97,8 @@ class SideBarWidget extends StatelessWidget {
             }));
   }
 
-  Widget itemBuilder(BuildContext context, int index, List listMenu,
-      bool isDark) {
+  Widget itemBuilder(
+      BuildContext context, int index, List listMenu, bool isDark) {
     var groupElement = listMenu.elementAt(index);
     List menuList = groupElement['menuList'];
     String groupName = groupElement['groupName'];
@@ -120,9 +118,12 @@ class SideBarWidget extends StatelessWidget {
             height: 10,
           ),
         Column(
-          children: menuList.map((e) =>
-              SideMenuWidget(
-                e: e, isDark: isDark, expandedMenuName: expandedMenuName,))
+          children: menuList
+              .map((e) => SideMenuWidget(
+                    e: e,
+                    isDark: isDark,
+                    expandedMenuName: expandedMenuName,
+                  ))
               .toList(),
         ),
         const SizedBox(

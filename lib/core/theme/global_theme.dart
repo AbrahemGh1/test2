@@ -21,10 +21,12 @@ class GlobalTheme {
         colorScheme: colorScheme,
         focusColor: focusColor,
         appBarTheme: appBarTheme,
-        textTheme: _textTheme,
+        //textTheme: _textTheme,
         hintColor: hintColor,
         cardTheme: cardTheme,
-        fontFamily: 'Careem');
+        // scaffoldBackgroundColor: Color(0xFFEFF4FB),
+        textTheme: GoogleFonts.almaraiTextTheme(),
+        fontFamily: 'almarai');
   }
 
   static CardTheme lightCardTheme = const CardTheme(

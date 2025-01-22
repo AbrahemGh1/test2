@@ -1,11 +1,12 @@
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:faker/faker.dart' as fakerRandom;
 import 'package:flareline_crm/core/theme/crm_colors.dart';
 import 'package:flareline_crm/pages/crm_layout.dart';
+import 'package:flareline_uikit/components/forms/select_widget.dart';
+import 'package:flareline_uikit/components/modal/modal_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:textformfield_datetime_range_picker/textformfield_datetime_range_picker.dart';
 
 class DayCalendarPage extends CrmLayout {
   DayCalendarPage({super.key});
@@ -21,26 +22,104 @@ class DayCalendarPage extends CrmLayout {
   @override
   String breakTabTitle(BuildContext context) {
     // TODO: implement breakTabTitle
-    return 'Today';
+    return 'اليوم';
   }
 
   @override
   Widget contentDesktopWidget(BuildContext context) {
     return SfCalendar(
       view: CalendarView.day,
-      timeSlotViewSettings: TimeSlotViewSettings(
+      showTodayButton: true,
+      showNavigationArrow: true,
+      onTap: (calendarTapDetails) {
+        if (calendarTapDetails.targetElement.name == 'calendarCell') {
+          ModalDialog.show(
+              context: context,
+              title: 'حجز موعد',
+              titleAlign: Alignment.centerLeft,
+              showTitle: true,
+              modalType: ModalType.medium,
+              showCancel: true,
+              width: 600,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'الاسم',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SelectWidget(
+                    selectionList: const [
+                      'رامي غزلان',
+                      'خالد طناش',
+                      'ابراهيم عمري'
+                    ],
+                    textStyle: const TextStyle(fontSize: 12),
+                    onDropdownChanged: (value) {
+                      print(value);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'المعالج',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SelectWidget(
+                    selectionList: const [
+                      'خالد يوسف',
+                      'هبة عمر',
+                      'ابراهيم محمد'
+                    ],
+                    textStyle: const TextStyle(fontSize: 12),
+                    onDropdownChanged: (value) {
+                      print(value);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  _infoDivider('الوقت'),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormFieldDateTimeRangePicker(
+                    selectedOption: DateTimeOption.timeOnly,
+                    initialDate: calendarTapDetails.date,
+                    initialStartHour: calendarTapDetails.date?.hour,
+                    initialEndHour: calendarTapDetails.date?.hour,
+                    titleStartTime: const Text('من',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
+                    titleEndTime: const Text('إلى',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
+                  )
+                ],
+              ));
+        }
+      },
+      timeSlotViewSettings: const TimeSlotViewSettings(
           numberOfDaysInView: 7,
-          minimumAppointmentDuration: const Duration(minutes: 60)),
+          minimumAppointmentDuration: Duration(minutes: 30)),
       dataSource: MeetingDataSource(_getDataSource()),
       appointmentBuilder: (context, detail) {
         if (detail.appointments.isEmpty) {
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         }
         dynamic item = detail.appointments.elementAtOrNull(0);
         if (item is Meeting) {
           return Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
                 color: item.background, borderRadius: BorderRadius.circular(8)),
             child: Text(
@@ -49,7 +128,7 @@ class DayCalendarPage extends CrmLayout {
             ),
           );
         }
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
       },
       cellBorderColor: CrmColors.border,
       firstDayOfWeek: 1,
@@ -64,8 +143,6 @@ class DayCalendarPage extends CrmLayout {
   }
 
   List<Meeting> _getDataSource() {
-    fakerRandom.Faker faker = fakerRandom.Faker();
-
     final DateTime today = getWeekStartDate();
 
     DateTime startTime = DateTime(today.year, today.month, today.day, 9);
@@ -74,14 +151,14 @@ class DayCalendarPage extends CrmLayout {
     final List<Meeting> meetings = List.generate(20, (i) {
       Meeting meeting;
       if (i % 2 == 0 && i % 4 != 0) {
-        meeting = Meeting(faker.company.name(), startTime, endTime,
+        meeting = Meeting(' احمد ابراهيم', startTime, endTime,
             Color(0xFFE4F5FF), false, Color(0xFF45B2F2));
       } else if (i % 3 == 0) {
-        meeting = Meeting(faker.company.name(), startTime, endTime,
-            Color(0xFFFFEAD3), false, Color(0xFFED9636));
+        meeting = Meeting('خالد عمر', startTime, endTime, Color(0xFFFFEAD3),
+            false, Color(0xFFED9636));
       } else {
-        meeting = Meeting(faker.company.name(), startTime, endTime,
-            Color(0xFFE1F3E8), false, Color(0xFF16AC50));
+        meeting = Meeting('هبة يوسف', startTime, endTime, Color(0xFFE1F3E8),
+            false, Color(0xFF16AC50));
       }
       startTime = startTime.add(Duration(hours: 2 + Random().nextInt(10)));
       endTime = startTime.add(Duration(hours: 3 + Random().nextInt(6)));
@@ -161,4 +238,26 @@ class Meeting {
 
   /// IsAllDay which is equivalent to isAllDay property of [Appointment].
   bool isAllDay;
+}
+
+_infoDivider(String text) {
+  return Row(
+    children: [
+      const Expanded(
+          child: Divider(
+        color: CrmColors.border,
+      )),
+      const SizedBox(width: 10),
+      Text(
+        text,
+        style: const TextStyle(
+            color: CrmColors.heading, fontWeight: FontWeight.bold),
+      ),
+      const SizedBox(width: 10),
+      const Expanded(
+          child: Divider(
+        color: CrmColors.border,
+      )),
+    ],
+  );
 }

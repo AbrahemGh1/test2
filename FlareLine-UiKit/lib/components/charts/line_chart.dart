@@ -3,7 +3,6 @@ import 'package:flareline_uikit/core/mvvm/base_viewmodel.dart';
 import 'package:flareline_uikit/core/mvvm/base_widget.dart';
 import 'package:flareline_uikit/core/theme/flareline_colors.dart';
 import 'package:flutter/material.dart';
-
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class LineChartWidget extends BaseWidget<LineChartProvider> {
@@ -114,13 +113,13 @@ class LineChartWidget extends BaseWidget<LineChartProvider> {
                         builder: (c, selectedValue, child) {
                           return InkWell(
                               onTap: () {
-                                valueNotifier.value=item;
+                                valueNotifier.value = item;
                                 if (onDropdownChanged != null) {
                                   onDropdownChanged!(item);
                                 }
                               },
                               child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 6, vertical: 2),
                                   decoration: BoxDecoration(
                                       color: selectedValue == item
